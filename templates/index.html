@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mark2PDF</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Manrope:wght@400;500&family=JetBrains+Mono:wght@400;500;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+
+<body>
+    <div class="toolbar">
+        <div class="toolbar-brand">
+            <span class="toolbar-logo">M</span>
+            <div class="toolbar-brand-text">
+                <span class="toolbar-title">MARK2PDF</span>
+                <span class="toolbar-subtitle">STUDIO // v1.0</span>
+            </div>
+        </div>
+        <div class="toolbar-actions">
+            <select id="theme-selector">
+                <option value="light">Obsidian</option>
+                <option value="dark">Monochrom</option>
+                <option value="github">GitHub</option>
+            </select>
+            <button id="download-pdf"><span class="pulse-dot" id="pdf-pulse"></span>Als PDF generieren</button>
+            <button id="clear-storage" class="danger-btn">Text löschen</button>
+        </div>
+    </div>
+
+    <div class="pane-bar">
+        <span class="pane-label">EDITOR</span>
+        <div class="pane-bar-center">
+            <span class="pane-live"><span class="live-dot"></span>LIVE</span>
+            <span class="pane-label">VORSCHAU</span>
+        </div>
+        <span class="pane-label dim">SCROLL SYNC</span>
+    </div>
+
+    <div class="container">
+        <div class="editor-pane">
+            <textarea id="markdown-input" spellcheck="false" placeholder="Schreibe hier dein Markdown..."></textarea>
+        </div>
+        <div class="preview-pane">
+            <div id="html-preview" class="theme-light"></div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+
+</html>
